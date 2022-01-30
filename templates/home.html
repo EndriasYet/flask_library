@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Form</title>
+</head>
+<body style="text-align: center;">
+<h1> Hello {{name}}, Welcome to your library.</h1>
+{%if detail == False %}
+<h2>Fill out the form for a book you want to add or remove to or from your library</h2>
+<form action="" method="POST" >
+    {{ form.csrf_token }}
+    <p>  {{ form.name.label }}</p>
+    <p>{{ form.name() }} </p>
+    <p> {{ form.isbn.label }}</p>
+    <p>{{ form.isbn() }}</p>
+    <p>  {{ form.description.label }}</p>
+    <p>{{ form.description() }}</p>
+    <p>  {{ form.edition.label }}</p>
+    <p>{{ form.edition() }}</p>
+    <p>  {{ form.category.label }}</p>
+    <p>{{ form.category() }}</p>
+    <p> {{ form.year.label }}</p>
+    <p>{{ form.year() }}</p>
+    <P> <input type="submit" name="btn" value="Add-Book"> <input type="submit" name="btn" value="Remove-Book">
+        <input type="submit" name="btn" value="Get-Info"></P>
+    </form>
+ <div>
+    {% if success %}
+    <p style="margin-bottom:5px;"> Success! <P>
+    <p> {{msg}} </p>
+    {% endif %}
+    {% if success == False %}
+    <p style="margin-bottom:5px;"> {{error}} <P>
+    {% endif %}
+    </div>
+{% endif%}
+<div>
+    {% if detail%}
+    <p>{{msg}}</p>
+    <p> Name: {{detail[0]}} </p>
+    <p> ISBN: {{detail[1]}}</p>
+    <p> Description: {{detail[2]}}</p>
+    <p> Edition: {{detail[3]}}</p>
+    <p> Category:{{detail[4]}} </p>
+    <p> Published: {{detail[5]}} </p>
+    {%endif%}
+</div>
+</body>
+</html>
