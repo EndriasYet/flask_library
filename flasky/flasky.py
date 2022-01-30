@@ -144,7 +144,7 @@ def books():
                         error = "Can't find the book you requested"
             else:
                 # if the book form entries are not valid, return an error string and print the errors for debugging
-                error = "ERROR!! Empty ISBN or Title field detected. Please try again"
+                error = "ERROR!! Invalid ISBN or empty title field detected. Please try again"
                 print(form.errors)
         return render_template('home.html', form=form, success=success, msg=msg, error=error, detail=detail,
                                name=str(user.username))
