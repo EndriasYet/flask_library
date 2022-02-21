@@ -95,12 +95,12 @@ def books():
     msg = error = ''
     # create a book-form object
     form = BookForm()
-    if session['users'] is None:
+    if len(session) == 0:
         return redirect(url_for('login'))
     user = User.query.filter_by(username=session['users'])
     # query all books owned by the user to display on the web site
     # check if a session is under way for a user
-    if not session.get("users") is None and user is not None:
+    if  user is not None:
         user.username = session['users']
         print('Stared')
         print(user.username)

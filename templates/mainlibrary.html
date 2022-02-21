@@ -21,17 +21,17 @@ background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337
     <form action="" method="POST">
         {{ form.csrf_token }}
         <p> {{ form.name.label }}</p>
-        <p>{{ form.name() }} </p>
+        <p style="color: black">{{ form.name() }} </p>
         <p> {{ form.isbn.label }}</p>
-        <p>{{ form.isbn() }}</p>
+        <p style="color: black">{{ form.isbn() }}</p>
         <p> {{ form.description.label }}</p>
-        <p>{{ form.description() }}</p>
+        <p style="color: black">{{ form.description() }}</p>
         <p> {{ form.edition.label }}</p>
-        <p>{{ form.edition() }}</p>
+        <p style="color: black">{{ form.edition() }}</p>
         <p> {{ form.category.label }}</p>
-        <p>{{ form.category() }}</p>
+        <p style="color: black">{{ form.category() }}</p>
         <p> {{ form.year.label }}</p>
-        <p>{{ form.year() }}</p>
+        <p style="color: black">{{ form.year() }}</p>
         <P> <input type="submit" name="btn" class="btn btn-primary" value="Add-Book">
             <input type="submit" name="btn"  class="btn btn-primary"value="Remove-Book">
             <input type="submit" name="btn" class="btn btn-info" value="Get-Info">
