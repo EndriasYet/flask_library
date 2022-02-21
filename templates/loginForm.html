@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'base.html' %}
 <head>
     <meta charset="UTF-8">
-    <title>Login Info</title>
+    <title>{% block head%} Login Info {% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 </head>
-<body>
+ {% block content %}
+<body style=" font-family:'Architects Daughter', cursive; font-weight:100; color: #f8f9fa;
+background-image: url(https://images.pexels.com/photos/6344238/pexels-photo-6344238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+background-size: 90%;background-repeat: no">
+<div style="color: #f8f9fa">
 <h1> Hello, Please log-in to access your library.</h1>
-
-{% if empty == True %}
 <form action="" method="POST">
     {{ form.csrf_token }}
-    <p>  {{ form.username.label }}: {{ form.username() }} </p>
-    <p> {{ form.password.label }}:  {{ form.password() }}</p>
-    <p> {{ form.password2.label }}:  {{ form.password2() }}</p>
-    <P> <input type="submit" name="btn" value="Sign-up"> </p>
-    {% endif %}
-
-{% if empty == False %}
-<form action="" method="POST">
-    {{ form.csrf_token }}
-    <p>  {{ form.username.label }}: {{ form.username() }} </p>
-    <p> {{ form.password.label }}:  {{ form.password() }}</p>
-    <p>  <input type="submit" name="btn" value="Log-in"> </p>
-    {% endif %}
+    <p>  {{ form.username.label }}: <span style="color: black;">{{ form.username() }}<span> </p>
+    <p> {{ form.password.label }}:  <span style="color: black;">{{ form.password() }} </span></p>
+    <p>  <input type="submit" name="btn"  class="btn btn-primary" value="Log-in"> </p>
 </form>
     <div>
         {% if error %}
-            <p>{{error}}</p>
+            <div class="alert alert-danger">{{error}}</div>
         {%endif%}
     </div>
+</div>
 </body>
+
+ {% endblock %}
 </html>

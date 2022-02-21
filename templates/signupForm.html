@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>{% block head %}Signup {% endblock%}</title>
+</head>
+ {% block content %}
+<body style=" font-family:'Architects Daughter', cursive; font-weight:100;
+background-image:url(https://images.pexels.com/photos/9572561/pexels-photo-9572561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+ background-size: 100%">
+<div style="color: #fef9ef">
+<h1> Hello, Please Create an account to access your library.</h1>
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    <p>  {{ form.username.label }}: {{ form.username() }} </p>
+    <p> {{ form.password.label }}:  {{ form.password() }}</p>
+    <p> {{ form.password2.label }}:  {{ form.password2() }}</p>
+    <P> <input type="submit" name="btn" value="Sign-up"> </p>
+</form>
+    <div>
+        {% if error %}
+            <div class="alert alert-danger">{{error}}</div>
+        {%endif%}
+    </div>
+</div>
+</body>
+ {% endblock %}
+</html>

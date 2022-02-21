@@ -1,4 +1,4 @@
-from flasky.flasky import app
+from routes.routes import app
 
 
 if __name__ == '__main__':

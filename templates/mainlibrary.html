@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title> {% block head %}Library Form {% endblock%}</title>
+
+</head>
+
+{% block content %}
+<body style="
+background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+ background-size: 100%">
+<div style="color: #caf0f8">
+<div style="font-family:'Architects Daughter', cursive; font-weight:100;">
+<div class="row" style="padding-left: 10px;">
+    <h2 style="padding-left: 10px"> Hello {{name}}, Welcome to your library.</h2>
+    {%if detail == False %}
+    <h3 style="padding-left: 10px">Fill out the form for a book you want to add or remove to or from your library</h3>
+    <div style="text-align: left; padding-left: 10px;" class="col-sm-4">
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        <p> {{ form.name.label }}</p>
+        <p>{{ form.name() }} </p>
+        <p> {{ form.isbn.label }}</p>
+        <p>{{ form.isbn() }}</p>
+        <p> {{ form.description.label }}</p>
+        <p>{{ form.description() }}</p>
+        <p> {{ form.edition.label }}</p>
+        <p>{{ form.edition() }}</p>
+        <p> {{ form.category.label }}</p>
+        <p>{{ form.category() }}</p>
+        <p> {{ form.year.label }}</p>
+        <p>{{ form.year() }}</p>
+        <P> <input type="submit" name="btn" class="btn btn-primary" value="Add-Book">
+            <input type="submit" name="btn"  class="btn btn-primary"value="Remove-Book">
+            <input type="submit" name="btn" class="btn btn-info" value="Get-Info">
+        </p>
+    </form>
+        </div>
+    <div style="text-align: left; width:50%; padding-left: 10px;" >
+     <div class="col-sm-4" style="position:absolute; right:30px;">
+         <table class="table" style="background-color: black; opacity: 0.6; font-color: #white">
+             <caption style="text-size: 250%; text-align: center;"> {{name}}'s library</caption>
+    <tr style="width:20%  o">
+        <th>Title</th>
+        <th>ISBN</th>
+        <th> Description</th>
+        <th> Category </th>
+        <th> Edition</th>
+    </tr>
+            {% for i in range(library|length) %}
+        <tr style="width:20%">
+        <td>{{library[i][0]}}</td>
+        <td>{{library[i][1]}}</td>
+        <td> {{library[i][2]}}</td>
+        <td> {{library[i][3]}} </td>
+        <td> {{library [i][4]}}</td>
+    </tr>
+        {% endfor %}
+    </table>
+         </div>
+    </div>
+</div>
+
+    <div>
+        {% if success %}
+        <p style="margin-bottom:5px;"> Success!
+        <P>
+        <p> {{msg}} </p>
+        {% endif %}
+        {% if success == False %}
+        <p style="margin-bottom:5px;"> {{error}}
+        <P>
+            {% endif %}
+    </div>
+    {% endif%}
+    <div style="text-align: left; padding-left: 10px;">
+        {% if detail%}
+        <p>{{msg}}</p>
+        <p> Name: {{detail[0]}} </p>
+        <p> ISBN: {{detail[1]}}</p>
+        <p> Description: {{detail[2]}}</p>
+        <p> Edition: {{detail[3]}}</p>
+        <p> Category:{{detail[4]}} </p>
+        <p> Published: {{detail[5]}} </p>
+        {%endif%}
+    </div>
+</div>
+</div>
+</body>
+ {% endblock %}
+</html>
