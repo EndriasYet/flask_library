@@ -8,5 +8,3 @@ Connection_string = f'mssql://@{Server}/{Database}?driver={Driver}'
 
 engine = create_engine(Connection_string)
 con = engine.connect()
-
-df=pd.read_sql_query()

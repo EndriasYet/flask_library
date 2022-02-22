@@ -11,13 +11,13 @@
 <body style="
 background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
  background-size: 100%">
-<div style="color: #caf0f8">
-<div style="font-family:'Architects Daughter', cursive; font-weight:100;">
+<div style="color: white">
+<div style="font-family: 'Rhodium Libre', serif;">
 <div class="row" style="padding-left: 10px;">
-    <h2 style="padding-left: 10px"> Hello {{name}}, Welcome to your library.</h2>
+    <h2 style="padding-left: 10px; text-align: center; color: #eff7f6"> Hello {{name}}, Welcome to your library.</h2>
     {%if detail == False %}
-    <h3 style="padding-left: 10px">Fill out the form for a book you want to add or remove to or from your library</h3>
-    <div style="text-align: left; padding-left: 10px;" class="col-sm-4">
+    <h3 style="padding-left: 10px; text-align: center; color: #eff7f6">Fill out the form for a book you want to add or remove to or from your library</h3>
+    <div style="text-align: left; padding-left: 2%;" class="col-sm-4">
     <form action="" method="POST">
         {{ form.csrf_token }}
         <p> {{ form.name.label }}</p>
@@ -32,7 +32,7 @@ background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337
         <p style="color: black">{{ form.category() }}</p>
         <p> {{ form.year.label }}</p>
         <p style="color: black">{{ form.year() }}</p>
-        <P> <input type="submit" name="btn" class="btn btn-primary" value="Add-Book">
+        <P style="padding-top: 10px"> <input type="submit" name="btn" class="btn btn-primary" value="Add-Book">
             <input type="submit" name="btn"  class="btn btn-primary"value="Remove-Book">
             <input type="submit" name="btn" class="btn btn-info" value="Get-Info">
         </p>
@@ -41,21 +41,17 @@ background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337
     <div style="text-align: left; width:50%; padding-left: 10px;" >
      <div class="col-sm-4" style="position:absolute; right:30px;">
          <table class="table" style="background-color: black; opacity: 0.6; font-color: #white">
-             <caption style="text-size: 250%; text-align: center;"> {{name}}'s library</caption>
+             <caption style="text-size: 250%; text-align: center; color: #d7e3fc"> {{name}}'s library</caption>
     <tr style="width:20%  o">
         <th>Title</th>
         <th>ISBN</th>
-        <th> Description</th>
         <th> Category </th>
-        <th> Edition</th>
     </tr>
             {% for i in range(library|length) %}
         <tr style="width:20%">
         <td>{{library[i][0]}}</td>
         <td>{{library[i][1]}}</td>
-        <td> {{library[i][2]}}</td>
         <td> {{library[i][3]}} </td>
-        <td> {{library [i][4]}}</td>
     </tr>
         {% endfor %}
     </table>
@@ -65,18 +61,18 @@ background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337
 
     <div>
         {% if success %}
-        <p style="margin-bottom:5px;"> Success!
-        <P>
+        <p style="margin-bottom:5px;"> Success! </p>
         <p> {{msg}} </p>
         {% endif %}
         {% if success == False %}
         <p style="margin-bottom:5px;"> {{error}}
-        <P>
+        </P>
             {% endif %}
     </div>
     {% endif%}
-    <div style="text-align: left; padding-left: 10px;">
+    <div style="text-align: center; color: #edf2fb; background-color: black; opacity: 0.5; padding-left: 10px;">
         {% if detail%}
+        <div style="color: #white;">
         <p>{{msg}}</p>
         <p> Name: {{detail[0]}} </p>
         <p> ISBN: {{detail[1]}}</p>
@@ -84,7 +80,8 @@ background-image:url(https://images.pexels.com/photos/272337/pexels-photo-272337
         <p> Edition: {{detail[3]}}</p>
         <p> Category:{{detail[4]}} </p>
         <p> Published: {{detail[5]}} </p>
-        {%endif%}
+        </div>
+            {%endif%}
     </div>
 </div>
 </div>

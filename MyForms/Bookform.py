@@ -9,8 +9,8 @@ class BookForm(Form):
                        # [validators.Length(min=1, max=50, message='Space can not be left empty'),
                        #  validators.InputRequired()]
                        )
-    isbn = IntegerField('ISBN Id(13 digits long)',
-                         [validators.Length(min=13, max=13, message='ISBN must be 13digits long')]
+    isbn = IntegerField('ISBN Id:',
+                        [validators.Length(min=13, max=13, message='ISBN must be 13digits long')]
                         )
     description = TextAreaField('Description:')
     edition = IntegerField('Edition:', [validators.length(min=0, max=20), validators.optional()])

@@ -24,3 +24,11 @@ class Books(db.Model):
 
     def __repr__(self):
         return f"Books('{self.isbn}','{self.name}','{self.description}')"
+
+# Server = 'DESKTOP-LNJG9L8\SQLEXPRESS'
+# Database = 'Master'
+# Driver = 'ODBC Driver 17for SQL Server'
+# Connection_string = f'mssql://@{Server}/{Database}?driver={Driver}'
+#
+# engine = create_engine(Connection_string)
+# con = engine.connect()
